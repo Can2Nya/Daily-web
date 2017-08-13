@@ -1,0 +1,5 @@
+FROM node:slim
+VOLUME /home/github
+RUN npm install dva-cli -g \
+    && cd /home/github
+CMD ['npm']
