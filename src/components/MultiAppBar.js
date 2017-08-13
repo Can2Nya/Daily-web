@@ -4,16 +4,20 @@ import { AppBar, Toolbar, Typography, IconButton, MenuIcon, Search, Input, Clear
 import classNames from 'classnames';
 import styles from './MultiAppBar.css';
 
-const MultiAppBar = ({ title, menus, anchor,
-  isSelectSourceName,
-  isSelectSource,
-  isSearchFieldOpen, // isSearchFieldOpen: 是否展开搜索栏
-  isSearchMenuOpen, 
-  onMenuClick, 
-  onSearchClick, 
-  onChangeInputValue,
-  onSearchMenuClick,
-  onSearch }) => {
+const MultiAppBar = ({ 
+  title,              // 标题
+  menus,              // 搜索分类
+  anchor,             // 弹出菜单框锚点
+  isSelectSourceName, // 来源名字
+  isSelectSource,     // 来源序号
+  isSearchFieldOpen,  // 是否展开搜索栏
+  isSearchMenuOpen,   // 弹出菜单开关
+  onMenuClick,        // 弹出菜单点击事件
+  onSearchClick,      // 搜索按钮点击事件
+  onChangeInputValue, // 输入框更变事件
+  onSearchMenuClick,  // 弹出菜单中列表的点击事件
+  onSearch            // 回车搜索事件
+   }) => {
 
   
   const titleClass = classNames({

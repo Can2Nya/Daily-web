@@ -12,7 +12,9 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
 
   const { drawer, appbar } = uistate
   // action
-
+/**
+ * 控制侧栏菜单展开
+ */
   const toggleDrawerOpen = () => {
     dispatch({
       type: 'uistate/setDrewerState',
@@ -21,7 +23,9 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
       }
     })
   };
-
+/**
+ * 控制搜索条展开
+ */
   const toggleSearchOpen = () => {
     dispatch({
       type: 'uistate/setAppBarState',
@@ -32,10 +36,7 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
   };
 /**
  * 控制搜索分类目录开关同时更变分类
- * @param  {key} null为空，int类型为分类目录序号
- * @param  {[type]}
- * @param  {[type]}
- * @return {[type]}
+ * 
  */
   const toggleSearchMenuOpen = (key, e) => {
     
@@ -43,9 +44,7 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
       type: 'uistate/setAppBarState',
       payload: {
         isSearchMenuOpen: !appbar.isSearchMenuOpen,
-
         MenuAnchor: e.currentTarget,
-        
       }
     })
     if (key != null){
@@ -56,9 +55,12 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
         }
       })
     }
-    
   };
-
+/**
+ * 设置文章来源
+ * @param  {key} int
+ * @param  {proxy} event代理
+ */
   const setPostSource = (key, proxy) => {
     
     dispatch({
@@ -81,7 +83,9 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
       }
     })
   };
+
 /**
+ * 设置搜索关键字
  * @param  {e} event事件,event.target.value存放input组件更变的值
  * @return {无}
  */
@@ -94,6 +98,11 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
     })
   };
 
+/**
+ * 搜索事件
+ * @param  {e} event代理
+ * @return {[type]}
+ */
   const onSearch = (e) => {
     if(e.key == 'Enter'){
       dispatch({
@@ -107,15 +116,8 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
           is_select_page: 1,
         }
       })
-    }
-    
-  }
-
-// render
-  // const setTitle = ()=>{
-  //   // const list = ['豆瓣精选','果壳精选','知乎精选']
-  //   return post.source_name[post.is_select_source]
-  // }
+    } 
+  };
   return (
     <MuiThemeProvider theme={ theme }>
       <div className={styles.root}>
