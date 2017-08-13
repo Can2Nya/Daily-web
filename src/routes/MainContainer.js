@@ -48,7 +48,7 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
         
       }
     })
-    if(key){
+    if (key != null){
       dispatch({
         type: 'post/setSearchSource',
         payload: {
