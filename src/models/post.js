@@ -5,8 +5,8 @@ export default {
   namespace: 'post',
 
   state: {
-    source_from: ['douban', 'guoke', 'zhihu', 'all'],
-    source_name: ['豆瓣', '果壳', '知乎', '全部'],
+    source_from: ['hot', 'douban', 'guoke', 'zhihu'],
+    source_name: ['热门', '豆瓣', '果壳', '知乎'],
     post: [],
     maxPage: 0,
     is_next: false,

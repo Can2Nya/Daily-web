@@ -59,9 +59,9 @@ const MultiAppBar = ({
               onChange={onChangeInputValue}
               onKeyDown={onSearch}
             />
-            <IconButton className={menuClass} color="contrast" onClick={onSearchMenuClick.bind(this, null)} >
-              <ArrowDropDown />
-            </IconButton>
+            
+              <ArrowDropDown className={menuClass} color="contrast" onClick={onSearchMenuClick.bind(this, null)} />
+            
             <Typography className={menuClass} type="button" color="inherit" onClick={onSearchMenuClick.bind(this, null)} >
               { isSelectSourceName }
             </Typography>

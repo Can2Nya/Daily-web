@@ -8,7 +8,7 @@ import styles from './IndexPage.css';
 
 
 
-const MainContainer= ({ uistate, post, dispatch, children }) => {
+const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
 
   const { drawer, appbar } = uistate
   // action
@@ -123,7 +123,7 @@ const MainContainer= ({ uistate, post, dispatch, children }) => {
       <div className={styles.root}>
         
         <MultiAppBar 
-        title={post.source_name[post.is_select_source]} 
+        title={pageTitle} 
         menus={post.source_name}
         anchor={appbar.MenuAnchor}
         isSelectSourceName={post.source_name[post.is_search_select_source]}

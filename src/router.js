@@ -6,9 +6,9 @@ import MainContainer from './routes/MainContainer';
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
-      <Route component={MainContainer}>
+      
         <Route path="/" component={IndexPage} />
-      </Route>
+      
     </Router>
   );
 }

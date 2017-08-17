@@ -68,12 +68,12 @@ const IndexPage = ({ uistate, post, loading, dispatch })=> {
 
   
   return (
-    <div>
+    <MainContainer pageTitle={post.source_name[post.is_select_source]}>
       <Grid container gutter={8} className={styles.grid}>
         { renderMultiCard() }
       </Grid>
       { renderLoading() }
-    </div>
+    </MainContainer>
   )
 };
 
