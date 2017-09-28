@@ -1,11 +1,11 @@
 import React from 'react';
 // import { Link } from 'dva/router';
-import { Button, CardMedia, Card, CardActions, CardContent, Typography } from '../utils/materialUI';
+import { Button, CardMedia, Card, CardActions, CardContent, Typography, IconButton, Favorite, FavoriteBorder } from '../utils/materialUI';
 
 import styles from './MultiCard.css';
 
-const MultiCard = ({ post })=>{
-  return(
+const MultiCard = ({ post }) => {
+  return (
     <Card className={styles.card}>
       <a className={styles['flex-img']} href={post.message_url} target="_blank" rel="noopener noreferrer" >
         <CardMedia className={styles.img} style={{ backgroundImage: `url(${post.image_url == ''?'http://cdnq.duitang.com/uploads/blog/201407/18/20140718094627_uNCK2.thumb.700_0.jpeg': post.image_url})` }}>
@@ -30,6 +30,9 @@ const MultiCard = ({ post })=>{
             详情
           </Button>
           </a>
+          <IconButton color='primary'>
+            <Favorite />
+          </IconButton>
         </CardActions>
         </div>
     </Card>

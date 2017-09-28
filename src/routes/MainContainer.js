@@ -6,11 +6,9 @@ import MultiMenu from '../components/MultiMenu';
 import MultiAppBar from '../components/MultiAppBar';
 import styles from './IndexPage.css';
 
+const MainContainer = ({ uistate, post, dispatch, pageTitle, children }) => {
 
-
-const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
-
-  const { drawer, appbar } = uistate
+  const { drawer, appbar } = uistate;
   // action
 /**
  * 控制侧栏菜单展开
@@ -19,41 +17,63 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
     dispatch({
       type: 'uistate/setDrewerState',
       payload: {
-        isOpen: !drawer.isOpen
-      }
-    })
+        isOpen: !drawer.isOpen,
+      },
+    });
   };
 /**
  * 控制搜索条展开
  */
   const toggleSearchOpen = () => {
+    //console.log(!appbar.isSearchFieldOpen)
     dispatch({
       type: 'uistate/setAppBarState',
       payload: {
-        isSearchFieldOpen: !appbar.isSearchFieldOpen
-      }
-    })
+        isSearchFieldOpen: !appbar.isSearchFieldOpen,
+      },
+    });
+    if (!appbar.isSearchFieldOpen === false && post.is_searched === true) { //
+      dispatch({
+        type: 'post/init',
+      });
+      dispatch({
+        type: 'post/setSearchState',
+        payload: {
+          is_searched: false,
+        },
+      });
+      dispatch({
+        type: 'post/setMode',
+        payload: {
+          mode: '',
+        },
+      });
+      dispatch({
+        type: 'post/fetch',
+        // payload: {
+        //   ...post,
+        // },
+      });
+    }
   };
 /**
- * 控制搜索分类目录开关同时更变分类
- * 
+ * 控制搜索分类目录开关以及更改搜索源
  */
   const toggleSearchMenuOpen = (key, e) => {
-    
     dispatch({
       type: 'uistate/setAppBarState',
       payload: {
         isSearchMenuOpen: !appbar.isSearchMenuOpen,
         MenuAnchor: e.currentTarget,
-      }
-    })
-    if (key != null){
+      },
+    });
+    if (key != null) {
       dispatch({
         type: 'post/setSearchSource',
         payload: {
-          is_search_select_source: key
-        }
-      })
+          is_search_select_source: key,
+        },
+      });
     }
   };
 /**
@@ -62,16 +82,15 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
  * @param  {proxy} event代理
  */
   const setPostSource = (key, proxy) => {
-    
     dispatch({
       type: 'post/init',
-    })
+    });
     dispatch({
       type: 'post/setSource',
       payload: {
-        is_select_source: key
-      }
-    })
+        is_select_source: key,
+      },
+    });
     dispatch({
       type: 'post/fetch',
       // ...post,
@@ -79,9 +98,9 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
       payload: {
         ...post,
         is_select_source: key,
-        is_select_page: 1
-      }
-    })
+        is_select_page: 1,
+      },
+    });
   };
 
 /**
@@ -93,9 +112,9 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
     dispatch({
       type: 'post/setSearchKey',
       payload: {
-        search_key: e.target.value
-      }
-    })
+        search_key: e.target.value,
+      },
+    });
   };
 
 /**
@@ -104,19 +123,32 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
  * @return {[type]}
  */
   const onSearch = (e) => {
-    if(e.key == 'Enter'){
+    if (e.key === 'Enter') {
       dispatch({
         type: 'post/init',
-      })
+      });
+      dispatch({
+        type: 'post/setMode',
+        payload: {
+          mode: 'search',
+        },
+      });
+      dispatch({
+        type: 'post/setSearchState',
+        payload: {
+          is_searched: true,
+        },
+      });
       dispatch({
         type: 'post/fetch',
-        mode: 'search',
-        payload: {
-          ...post,
-          is_select_page: 1,
-        }
-      })
-    } 
+        // mode: 'search',
+        // payload: {
+        //   ...post,
+        //   is_select_page: 1,
+        // },
+      });
+     
+    }
   };
   return (
     <MuiThemeProvider theme={ theme }>
@@ -144,10 +176,7 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
           >
           <MultiMenu ListName={post.source_name} activeKey={post.is_select_source} onClick={setPostSource} />
         </Drawer>
-
-      {children}
-      
-        
+      {children}      
       </div>
     </MuiThemeProvider>
   );
@@ -156,11 +185,11 @@ const MainContainer= ({ uistate, post, dispatch, pageTitle, children }) => {
 MainContainer.propTypes = {
 };
 
-function mapStateToProp({ uistate, post }){
-  return{
+function mapStateToProp({ uistate, post }) {
+  return {
     uistate: uistate,
-    post: post
-  }
-};
+    post: post,
+  };
+}
 
 export default connect(mapStateToProp)(MainContainer);

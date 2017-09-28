@@ -3,6 +3,7 @@ import Button from 'material-ui/Button';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import Icon from 'material-ui/Icon';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import Drawer from 'material-ui/Drawer';
@@ -14,11 +15,15 @@ import { CircularProgress } from 'material-ui/Progress';
 import TextField from 'material-ui/TextField';
 import Input from 'material-ui/Input/Input';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import Avatar from 'material-ui/Avatar';
+// import FormControl from 'material-ui/Form/FormControl';
 
 import Search from 'material-ui-icons/Search';
 import Clear from 'material-ui-icons/Clear';
 import MenuIcon from 'material-ui-icons/Menu';
 import ArrowDropDown from 'material-ui-icons/ArrowDropDown';
+import Favorite from 'material-ui-icons/Favorite';
+import FavoriteBorder from 'material-ui-icons/FavoriteBorder';
 
 const theme = createMuiTheme({
   overrides: {
@@ -48,15 +53,17 @@ const theme = createMuiTheme({
 });
 
 
-export { 
-  MuiThemeProvider, 
-  createMuiTheme, 
+export {
+  MuiThemeProvider,
+  createMuiTheme,
 
+  Avatar,
   Button,
   AppBar,
   Toolbar,
   Typography,
   IconButton,
+  Icon,
   MenuIcon,
   Divider,
   Drawer,
@@ -78,6 +85,9 @@ export {
   Menu,
   MenuItem,
   ArrowDropDown,
+  Favorite,
+  FavoriteBorder,
+  // FormControl,
 
-  theme
+  theme,
 }

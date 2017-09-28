@@ -1,16 +1,18 @@
 import React from 'react';
-import { List, ListItem, ListItemText, Divider } from '../utils/materialUI'
-import styles from './MultiMenu.css'
+import { Link } from 'dva/router';
+import { List, ListItem, ListItemText, Divider } from '../utils/materialUI';
+import User from './User';
+import styles from './MultiMenu.css';
 
 const MultiMenu = ({ ListName, activeKey, onClick }) => {
 //ListName -> post.source_name
 //activeKey => post.is_select_source
   const renderList = () => {
-    return ListName.map((list, index)=>{
-      const style = activeKey == index ? styles.listitemActive: styles.listitem;
-      return(
+    return ListName.map((list, index) => {
+      const style = activeKey == index ? styles.listitemActive : styles.listitem;
+      return (
         <ListItem button key={index}>
-          <ListItemText inset className={style} primary={list} onClick={onClick.bind(this, index)} />
+          <ListItemText className={style} primary={list} onClick={onClick.bind(this, index)} />
         </ListItem>
       )
     })
@@ -18,16 +20,20 @@ const MultiMenu = ({ ListName, activeKey, onClick }) => {
 
   return(
     <List style={{ width: 250 }} disablePadding>
+      <User />
+      <Divider/>
       <ListItem>
           <ListItemText className={styles.title} primary='分类' />
       </ListItem>
       <Divider />
-      { renderList() }
+      <Link to="/">
+        { renderList() }
+      </Link>
     </List>
   )
 };
 
-MultiMenu.propTypes ={
+MultiMenu.propTypes = {
 
 };
 export default MultiMenu;

@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Typography, IconButton, MenuIcon, Search, Input, Clear
 import classNames from 'classnames';
 import styles from './MultiAppBar.css';
 
-const MultiAppBar = ({ 
+const MultiAppBar = ({
   title,              // 标题
   menus,              // 搜索分类
   anchor,             // 弹出菜单框锚点
@@ -16,10 +16,8 @@ const MultiAppBar = ({
   onSearchClick,      // 搜索按钮点击事件
   onChangeInputValue, // 输入框更变事件
   onSearchMenuClick,  // 弹出菜单中列表的点击事件
-  onSearch            // 回车搜索事件
+  onSearch,            // 回车搜索事件
    }) => {
-
-  
   const titleClass = classNames({
     [styles.title]: true,
     [styles.hidden]: isSearchFieldOpen,
@@ -37,7 +35,7 @@ const MultiAppBar = ({
     [styles.hidden]: !isSearchFieldOpen,
   });
 
-  return(
+  return (
     <AppBar position="fixed">
           <Toolbar>
             <IconButton className={titleClass} color="contrast" aria-label="Menu" onClick={onMenuClick}>
@@ -47,7 +45,7 @@ const MultiAppBar = ({
               { title }
             </Typography>
             <div className={styles.right} >
-            <IconButton color="contrast" className={styles.search} aria-label="Menu" onClick={onSearchClick}>
+            <IconButton color="contrast" className={styles.search} onClick={onSearchClick}>
               { !isSearchFieldOpen ? <Search /> : <Clear />}
             </IconButton>
             <Input

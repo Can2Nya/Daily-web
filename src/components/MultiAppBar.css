@@ -1,1 +1,45 @@
-.right{display:flex;flex:1 1 30%!important;justify-content:flex-end!important;align-items:center}.title{width:inherit;opacity:1;transition:all .4s ease-in-out}.hidden{opacity:0!important;visibility:hidden;position:absolute!important}.hidden-0px{width:0!important}.hidden-title-offset{left:-200px}.input{width:100%;flex:1 1 80%;opacity:1;margin:10px 0;color:#fff!important;transition:all .1s ease-in-out}.input:before{background-color:#fff!important}.input:before:hover{background-color:#fff!important}.input:after{background-color:#fff!important}.menu{flex:.2 1 auto;word-break:keep-all}
+.right {
+  display: flex;
+  flex: 1 1 30% !important;
+  justify-content: flex-end !important;
+  align-items: center;
+}
+.title {
+  width: inherit;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+  position: absolute !important;
+}
+.hidden-0px {
+  width: 0px !important;
+  /** 输入框隐藏 **/
+  transition: all 0.1s ease-in-out !important;
+}
+.hidden-title-offset {
+  left: -200px;
+}
+.input {
+  width: 100%;
+  flex: 1 1 80%;
+  opacity: 1;
+  margin: 10px 0;
+  color: #fff !important;
+  transition: all 0.5s ease-in-out;
+}
+.input:before {
+  background-color: #fff !important;
+}
+.input:before:hover {
+  background-color: #fff !important;
+}
+.input:after {
+  background-color: #fff !important;
+}
+.menu {
+  flex: .2 1 auto;
+  word-break: keep-all;
+}
