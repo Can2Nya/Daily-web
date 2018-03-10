@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "HOST=0.0.0.0 roadhog server",
+    "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "babel-runtime": "^6.9.2",
+    "base-64": "^0.1.0",
     "classnames": "^2.2.5",
     "dva": "^1.2.1",
     "dva-loading": "^0.2.1",
+    "js-cookie": "^2.2.0",
     "material-ui": "^1.0.0-beta.3",
     "material-ui-icons": "^1.0.0-alpha.19",
     "react": "^15.4.0",

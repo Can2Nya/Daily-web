@@ -5,13 +5,13 @@ export default {
 
   state: {
     drawer: {
-      isOpen: false
+      isOpen: false,
     },
     appbar: {
-      isSearchFieldOpen: false, //是否展开搜索栏以及是否正在展开搜索结果
-      isSearchMenuOpen: false, //是否展开搜索栏的菜单
-      MenuAnchor: undefined, //搜索分类菜单坐标
-    }
+      isSearchFieldOpen: false,  // 是否展开搜索栏以及是否正在展开搜索结果
+      isSearchMenuOpen: false,  // 是否展开搜索栏的菜单
+      MenuAnchor: undefined,    // 搜索分类菜单坐标
+    },
   },
 
   subscriptions: {
@@ -27,21 +27,21 @@ export default {
 
   reducers: {
     setDrewerState(state, action) {
-      return { 
-        ...state, 
+      return {
+        ...state,
         drawer: {
           ...state.drawer,
-          ...action.payload
-        } 
+          ...action.payload,
+        },
       };
     },
     setAppBarState(state, action) {
-      return { 
-        ...state, 
+      return {
+        ...state,
         appbar: {
           ...state.appbar,
-          ...action.payload
-        } 
+          ...action.payload,
+        },
       };
     },
   },

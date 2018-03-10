@@ -1,2 +1,8 @@
 # Daily-web
-dvajs构造的简易前端
+
+脚手架：
+- dva2.x
+UI组件：
+- materialDesign react
+
+
