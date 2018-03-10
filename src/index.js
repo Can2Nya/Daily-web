@@ -14,6 +14,7 @@ app.use(createLoading());
 // 3. Model
 app.model(require('./models/uistate'));
 app.model(require('./models/post'));
+app.model(require('./models/user'));
 
 // 4. Router
 app.router(require('./router'));

@@ -13,5 +13,19 @@
   margin-right: auto !important;
 }
 .paper {
-  padding: 30px 50px;
+  padding: 50px 10px;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  position: relative;
+  margin-bottom: 40px;
+}
+.inputMail {
+  width: 61%;
+}
+.button {
+  width: 30%;
+  margin-left: 1em;
 }
